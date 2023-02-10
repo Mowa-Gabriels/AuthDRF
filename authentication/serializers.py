@@ -26,3 +26,13 @@ class RegisterSerializer(ModelSerializer):
         user = User.objects.create_user(**validated_data)
     
         return user
+    
+class VerifyEmailSerializer(ModelSerializer):
+
+    token = serializers.CharField(max_length=555)
+
+    class Meta:
+        model = User
+        fiels = [
+            'token'
+        ]

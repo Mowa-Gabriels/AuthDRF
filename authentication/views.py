@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, status
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer, VerifyEmailSerializer
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
@@ -39,6 +39,8 @@ class RegisterView(generics.GenericAPIView):
 
 
 class VerifyEmailView(generics.GenericAPIView):
+    serializer_class = VerifyEmailSerializer
+    
     def get(self, request):
         token = request.GET.get('token')
         try:

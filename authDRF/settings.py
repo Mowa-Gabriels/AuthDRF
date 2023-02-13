@@ -108,6 +108,19 @@ SIMPLE_JWT = {
 
 }
 
+SWAGGER_SETTINGS = {
+
+    'SECURITY_DEFINITIONS': {
+        "Bearer": {
+                "type": "apiKey",
+                "name": "Authorisation",
+                "in": "header"
+  }
+    },
+    
+    'VALIDATOR_URL': 'http://localhost:8000',
+    
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
